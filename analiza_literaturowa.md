@@ -64,3 +64,9 @@ Projekt dotyczy analizy jakości i sposobu działania modeli In-Context Learning
     
 
 - **[TabICLv2: A better, faster, scalable, and open tabular foundation model (Qu et al., ICML 2026)](https://github.com/soda-inria/tabicl)**  
+
+## 3. Interpretacja mechanistyczna
+
+**[Probing Classifiers: Promises, Shortcomings, and Advances](https://doi.org/10.1162/coli_a_00422)**
+
+**[TabPFN Through The Looking Glass: An interpretability study of TabPFN and its internal representations](https://arxiv.org/html/2601.08181v1)**
