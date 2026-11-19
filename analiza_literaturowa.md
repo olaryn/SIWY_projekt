@@ -70,3 +70,13 @@ Projekt dotyczy analizy jakości i sposobu działania modeli In-Context Learning
 **[Probing Classifiers: Promises, Shortcomings, and Advances](https://doi.org/10.1162/coli_a_00422)**
 
 **[TabPFN Through The Looking Glass: An interpretability study of TabPFN and its internal representations](https://arxiv.org/html/2601.08181v1)**
+
+Artykuł opisuje różne podejścia badania zachowania moodelu TabPFN v2 używając interpretacji mechanistycznej. Autorzy badają, jakie informacje są przechowywane w kolejnych warstwach oraz jak powstaje końcowa predykcja.
+
+Pierwsza grupa eksperymentów dotyczy współczynników funkcji liniowej $z=\alpha x+\beta y$. Autorzy sprawdzają, czy z aktywacji modelu można odczytać wartości $\alpha$ i $\beta$. Wspólna sonda uczona na reprezentacjach pochodzących z wielu oddzielnych dopasowań TabPFN, przy stałej wartości wspólczynnników, osiąga słabe wyniki. Natomiast po połączeniu danych w jeden kontekst, z dodatkową zmienną wskazującą parę współczynników, odczyt jest skuteczny. Sugeruje to, że informacja o współczynnikach jest dostępna w aktywacjach wewnętrznych warstw, ale nie musi mieć uniwersalnej reprezentacji między różnymi kontekstami. Sonda może również rozpoznawać charakterystyczne sygnały poszczególnych wariantów danych.
+
+Kolejny eksperyment śledzi pojawianie się odpowiedzi w kolejnych warstwach. Uczone sondy liniowe potrafią skutecznie odczytać końcowy wynik już około warstwy 5. Z kolei logit lens, czyli zastosowanie własnego końcowego odwzorowania wyjściowego modelu do wcześniejszych aktywacji, daje poprawny odczyt dopiero około warstw 7–8. Wynik sugeruje, że informacja potrzebna do przewidywania odpowiedzi jest dostępna wcześniej, niż reprezentacja zostaje dostosowana do końcowego mechanizmu odczytu.
+
+Autorzy sprawdzają także zawartość tokenu odpowiedzi. Udaje się z niego odzyskać zarówno wartości wejściowe a, b, c, jak i iloczyn $a\cdot b$. Wskazuje to, że informacje o wejściu trafiają do reprezentacji odpowiedzi i pozostają w niej dostępne podczas przetwarzania.
+
+Głównym wnioskiem artykułu jest to, że wewnętrzne reprezentacje TabPFN zawierają uporządkowaną, interpretowalną informację o wejściu, parametrach zależności, wynikach pośrednich i odpowiedzi końcowej. Różne wielkości są najłatwiej odczytywane na różnych głębokościach sieci.
